@@ -1,0 +1,11 @@
+age,sex,pct,caution
+18–44,Men,2.5,true
+18–44,Women,1.1,true
+45–54,Men,9.5,true
+45–54,Women,4.2,true
+55–64,Men,13.4,false
+55–64,Women,10.6,false
+65–74,Men,18.4,false
+65–74,Women,8.1,false
+75+,Men,17.1,false
+75+,Women,10.5,true

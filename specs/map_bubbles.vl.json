@@ -1,0 +1,223 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Where do most people with diabetes live?",
+    "subtitle": "Number of people with diabetes (thousands), 2022. Bigger circle = more people."
+  },
+  "width": "container",
+  "height": 460,
+  "projection": {
+    "type": "conicConformal",
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/states.geojson",
+        "format": {
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.STATE_NAME",
+          "as": "name"
+        },
+        {
+          "lookup": "name",
+          "from": {
+            "data": {
+              "url": "data/states.csv"
+            },
+            "key": "name",
+            "fields": [
+              "code",
+              "crude",
+              "age_std",
+              "gap",
+              "number_k",
+              "moe"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#e7e1d3",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.82,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "number_k",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              420
+            ],
+            "range": [
+              0,
+              4200
+            ]
+          },
+          "legend": {
+            "title": "People (thousands)",
+            "orient": "none",
+            "legendX": 6,
+            "legendY": 4,
+            "values": [
+              10,
+              100,
+              300
+            ],
+            "symbolFillColor": "#1f5fbf",
+            "symbolOpacity": 0.8,
+            "fillColor": "rgba(255,253,248,0.9)",
+            "padding": 8
+          }
+        },
+        "color": {
+          "value": "#1f5fbf"
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "State"
+          },
+          {
+            "field": "number_k",
+            "title": "People (thousands)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.number_k >= 100"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "white"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.number_k >= 100"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "dy": 14,
+        "color": "white"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "number_k",
+          "type": "quantitative",
+          "format": ",.0f"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.number_k < 100"
+        },
+        {
+          "calculate": "datum.code + ' ' + round(datum.number_k)",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 600,
+        "fontSize": 12,
+        "align": "left",
+        "dx": 14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ]
+}

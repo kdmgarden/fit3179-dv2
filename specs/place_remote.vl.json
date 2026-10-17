@@ -1,0 +1,186 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Rates are highest outside the big cities",
+    "subtitle": "Adults with diabetes, 2022–24, adjusted for age (AIHW). Bar = everyone"
+  },
+  "data": {
+    "url": "data/aihw_place.csv"
+  },
+  "width": "container",
+  "height": 230,
+  "transform": [
+    {
+      "filter": "datum.kind == 'Where you live'"
+    },
+    {
+      "calculate": "max(datum.men, datum.women)",
+      "as": "top"
+    },
+    {
+      "calculate": "'Everyone ' + format(datum.persons, '.1f') + '%'",
+      "as": "lab"
+    },
+    {
+      "fold": [
+        "men",
+        "women"
+      ],
+      "as": [
+        "sexkey",
+        "val"
+      ]
+    },
+    {
+      "calculate": "datum.sexkey == 'men' ? 'Men' : 'Women'",
+      "as": "sex"
+    }
+  ],
+  "layer": [
+    {
+      "transform": [
+        {
+          "filter": "datum.sexkey == 'men'"
+        }
+      ],
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.5
+        },
+        "color": "#a9c1e8"
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Major cities",
+            "Inner regional",
+            "Outer regional & remote"
+          ],
+          "axis": {
+            "title": null,
+            "labelLimit": 190
+          }
+        },
+        "x": {
+          "field": "persons",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              20
+            ]
+          },
+          "axis": {
+            "title": "% of adults with diabetes",
+            "format": ".0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "area",
+            "title": "Area"
+          },
+          {
+            "field": "persons",
+            "title": "Everyone %",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 110,
+        "opacity": 1,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Major cities",
+            "Inner regional",
+            "Outer regional & remote"
+          ]
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "sex",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Men",
+              "Women"
+            ],
+            "range": [
+              "#5b4aa6",
+              "#d1478c"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "area",
+            "title": "Area"
+          },
+          {
+            "field": "sex",
+            "title": "Group"
+          },
+          {
+            "field": "val",
+            "title": "% with diabetes",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.sexkey == 'men'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontWeight": 700,
+        "fontSize": 12.5
+      },
+      "encoding": {
+        "y": {
+          "field": "area",
+          "type": "nominal",
+          "sort": [
+            "Major cities",
+            "Inner regional",
+            "Outer regional & remote"
+          ]
+        },
+        "x": {
+          "field": "top",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "How much does an older population push the rate up?",
+    "subtitle": "Raw rate minus age-adjusted rate, in percentage points. One tile per state."
+  },
+  "data": {
+    "url": "data/states.csv"
+  },
+  "width": "container",
+  "height": 400,
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "white",
+        "strokeWidth": 5,
+        "cornerRadius": 6
+      },
+      "encoding": {
+        "x": {
+          "field": "tile_col",
+          "type": "ordinal",
+          "axis": null
+        },
+        "y": {
+          "field": "tile_row",
+          "type": "ordinal",
+          "axis": null
+        },
+        "color": {
+          "field": "gap",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blueorange",
+            "domain": [
+              -2,
+              2
+            ],
+            "domainMid": 0,
+            "reverse": true
+          },
+          "legend": {
+            "title": "Raw rate minus age-adjusted rate",
+            "orient": "bottom",
+            "gradientLength": 220,
+            "format": "+.1f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "State"
+          },
+          {
+            "field": "crude",
+            "title": "Raw rate %",
+            "format": ".1f"
+          },
+          {
+            "field": "age_std",
+            "title": "Age-adjusted %",
+            "format": ".1f"
+          },
+          {
+            "field": "gap",
+            "title": "Difference",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 15,
+        "dy": -9
+      },
+      "encoding": {
+        "x": {
+          "field": "tile_col",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "tile_row",
+          "type": "ordinal"
+        },
+        "text": {
+          "field": "code"
+        },
+        "color": {
+          "condition": {
+            "test": "abs(datum.gap) > 1",
+            "value": "white"
+          },
+          "value": "#1b2a3a"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 14,
+        "dy": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "tile_col",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "tile_row",
+          "type": "ordinal"
+        },
+        "text": {
+          "field": "gap",
+          "type": "quantitative",
+          "format": "+.1f"
+        },
+        "color": {
+          "condition": {
+            "test": "abs(datum.gap) > 1",
+            "value": "white"
+          },
+          "value": "#1b2a3a"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "font": "Public Sans",
+  "background": null,
+  "view": {
+    "stroke": null
+  },
+  "title": {
+    "font": "Fraunces",
+    "fontSize": 18,
+    "fontWeight": 600,
+    "anchor": "start",
+    "color": "#1b2a3a",
+    "subtitleFont": "Public Sans",
+    "subtitleFontSize": 13,
+    "subtitleColor": "#47566a",
+    "subtitlePadding": 6,
+    "offset": 12
+  },
+  "axis": {
+    "labelFont": "Public Sans",
+    "titleFont": "Public Sans",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "titleFontWeight": 600,
+    "titleColor": "#1b2a3a",
+    "labelColor": "#1b2a3a",
+    "domainColor": "#b6b0a2",
+    "tickColor": "#b6b0a2",
+    "gridColor": "#e4dfd2"
+  },
+  "legend": {
+    "labelFont": "Public Sans",
+    "titleFont": "Public Sans",
+    "labelFontSize": 12,
+    "titleFontSize": 12,
+    "titleFontWeight": 600,
+    "labelColor": "#1b2a3a",
+    "titleColor": "#1b2a3a"
+  },
+  "text": {
+    "font": "Public Sans",
+    "color": "#1b2a3a"
+  }
+}
