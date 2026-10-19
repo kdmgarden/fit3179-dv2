@@ -1,0 +1,231 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Diabetes climbs with age, and from 35 men are ahead",
+    "subtitle": "Share of men and women with diabetes, by age group, 2022"
+  },
+  "data": {
+    "url": "data/age_sex.csv"
+  },
+  "width": "container",
+  "height": 360,
+  "transform": [
+    {
+      "filter": "datum.group != 'All'"
+    },
+    {
+      "calculate": "datum.group == 'Men' ? -datum.pct : datum.pct",
+      "as": "signed"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": {
+          "band": 0.78
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "75+",
+            "65–74",
+            "55–64",
+            "45–54",
+            "35–44",
+            "25–34",
+            "15–24",
+            "0–14"
+          ],
+          "axis": {
+            "title": "Age group (years)",
+            "orient": "left",
+            "labelPadding": 6
+          }
+        },
+        "x": {
+          "field": "signed",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -27,
+              25
+            ]
+          },
+          "axis": {
+            "title": "◂ Men    % with diabetes    Women ▸",
+            "labelExpr": "abs(datum.value) + '%'",
+            "values": [
+              -20,
+              -10,
+              0,
+              10,
+              20
+            ],
+            "grid": true
+          }
+        },
+        "color": {
+          "field": "group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Men",
+              "Women"
+            ],
+            "range": [
+              "#5b4aa6",
+              "#c28a2c"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "direction": "horizontal"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "age",
+            "title": "Age"
+          },
+          {
+            "field": "group",
+            "title": "Group"
+          },
+          {
+            "field": "pct",
+            "title": "% with diabetes",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.group == 'Men'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -5,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "75+",
+            "65–74",
+            "55–64",
+            "45–54",
+            "35–44",
+            "25–34",
+            "15–24",
+            "0–14"
+          ]
+        },
+        "x": {
+          "field": "signed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.group == 'Women'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "75+",
+            "65–74",
+            "55–64",
+            "45–54",
+            "35–44",
+            "25–34",
+            "15–24",
+            "0–14"
+          ]
+        },
+        "x": {
+          "field": "signed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "pct",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "age": "25–34",
+            "signed": 8.5,
+            "t": "Widest gap at 65–74:\nmen 17.1%\nvs women 10.5%"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#222935",
+        "lineBreak": "\n",
+        "dx": 0,
+        "dy": 0
+      },
+      "encoding": {
+        "y": {
+          "field": "age",
+          "type": "ordinal",
+          "sort": [
+            "75+",
+            "65–74",
+            "55–64",
+            "45–54",
+            "35–44",
+            "25–34",
+            "15–24",
+            "0–14"
+          ]
+        },
+        "x": {
+          "field": "signed",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ]
+}
