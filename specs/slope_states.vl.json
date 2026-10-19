@@ -1,0 +1,329 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Adjusting for age reshuffles the states",
+    "subtitle": [
+      "Each line is one state. Left: raw rate.",
+      "Right: the rate if every state had the same age mix."
+    ]
+  },
+  "data": {
+    "url": "data/states.csv"
+  },
+  "width": "container",
+  "height": 420,
+  "transform": [
+    {
+      "fold": [
+        "crude",
+        "age_std"
+      ],
+      "as": [
+        "measure",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.measure == 'crude' ? 'Raw rate' : 'Age-adjusted rate'",
+      "as": "side"
+    },
+    {
+      "calculate": "indexof(['SA','Tas','NT','ACT'], datum.code) >= 0",
+      "as": "hot"
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "code"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "line",
+        "point": {
+          "filled": true,
+          "size": 70
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ],
+          "axis": {
+            "title": null,
+            "labelFontSize": 13,
+            "labelFontWeight": 600,
+            "orient": "top",
+            "labelPadding": 8,
+            "domain": false,
+            "ticks": false,
+            "labelAngle": 0,
+            "labelFont": "Public Sans"
+          },
+          "scale": {
+            "padding": 0.55
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              2.5,
+              7.8
+            ]
+          },
+          "axis": {
+            "title": "% with diabetes",
+            "tickCount": 5,
+            "format": ".0f"
+          }
+        },
+        "detail": {
+          "field": "code",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": [
+            {
+              "param": "pick",
+              "empty": false,
+              "value": "#222935"
+            },
+            {
+              "test": "datum.hot",
+              "value": "#b0453d"
+            }
+          ],
+          "value": "#a8b3c2"
+        },
+        "opacity": {
+          "condition": [
+            {
+              "param": "pick",
+              "empty": false,
+              "value": 1
+            },
+            {
+              "test": "datum.hot",
+              "value": 1
+            }
+          ],
+          "value": 0.75
+        },
+        "strokeWidth": {
+          "condition": [
+            {
+              "param": "pick",
+              "empty": false,
+              "value": 4
+            },
+            {
+              "test": "datum.hot",
+              "value": 3
+            }
+          ],
+          "value": 2
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "State"
+          },
+          {
+            "field": "side",
+            "title": "Measure"
+          },
+          {
+            "field": "value",
+            "title": "% with diabetes",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.hot && datum.measure == 'crude'"
+        },
+        {
+          "calculate": "datum.code == 'Tas' ? 6.1 : datum.value",
+          "as": "v2"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontWeight": 700,
+        "fontSize": 13
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        },
+        "color": {
+          "value": "#b0453d"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.code == 'SA' && datum.measure == 'age_std'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 9,
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "#b0453d"
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.code == 'NT' && datum.measure == 'age_std'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -9,
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "#b0453d"
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.code == 'Tas' && datum.measure == 'age_std'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 0,
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "#b0453d"
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.code == 'ACT' && datum.measure == 'age_std'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": 0,
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "#b0453d"
+      },
+      "encoding": {
+        "x": {
+          "field": "side",
+          "type": "ordinal",
+          "sort": [
+            "Raw rate",
+            "Age-adjusted rate"
+          ]
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "code"
+        }
+      }
+    }
+  ]
+}

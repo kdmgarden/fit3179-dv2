@@ -1,0 +1,19 @@
+label,value,kind
+#Weight (BMI),,header
+Healthy weight,3.8,row
+Overweight,5.8,row
+"Obese, class I",8.1,row
+"Obese, class II",12.4,row
+"Obese, class III",18.8,row
+#Waist measurement,,header
+Lowered risk,2.5,row
+Increased risk,5.7,row
+Substantially increased risk,10.2,row
+#Blood pressure reading,,header
+Normal,5.8,row
+High,9.8,row
+Very high or severe,10.9,row
+#Everyday stress,,header
+Low distress,6.1,row
+High distress,9.9,row
+Very high distress,13.8,row

@@ -1,0 +1,9 @@
+code,name,crude,age_std,gap,number_k,moe,lo,hi,verdict,lon,lat,tile_col,tile_row
+NSW,New South Wales,5.1,4.4,0.7,410.2,0.7,4.4,5.8,Too close to tell apart from Australia,147.0,-31.2,2,1
+Vic,Victoria,5,4.4,0.6,330.5,1,4,6,Too close to tell apart from Australia,143.8,-37.1,2,2
+Qld,Queensland,5.1,4.3,0.8,265.7,1.2,3.9,6.3,Too close to tell apart from Australia,144.5,-22.8,2,0
+SA,South Australia,7.2,6,1.2,128.4,1.3,5.9,8.5,Clearly higher than Australia,135.0,-30.2,1,1
+WA,Western Australia,5.2,4.5,0.7,140.4,1.1,4.1,6.3,Too close to tell apart from Australia,122.0,-25.5,0,1
+Tas,Tasmania,6.1,4.4,1.7,34.4,1.3,4.8,7.4,Too close to tell apart from Australia,146.6,-41.8,2,3
+NT,Northern Territory,5.7,6.1,-0.4,10.3,1.4,4.3,7.1,Too close to tell apart from Australia,133.4,-19.6,1,0
+ACT,Australian Capital Territory,3.4,3.3,0.1,15.3,0.8,2.6,4.2,Clearly lower than Australia,149.4,-35.4,3,1
