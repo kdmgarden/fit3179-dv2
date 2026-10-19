@@ -1,0 +1,101 @@
+has,also,pct
+Arthritis,Arthritis,100
+Arthritis,Asthma,17
+Arthritis,Back problems,36.3
+Arthritis,Cancer,5.4
+Arthritis,COPD (lung),7.8
+Arthritis,Diabetes,15.1
+Arthritis,Heart & stroke,17
+Arthritis,Kidney disease,2.8
+Arthritis,Mental health,38.1
+Arthritis,Osteoporosis,10.1
+Asthma,Arthritis,22.7
+Asthma,Asthma,100
+Asthma,Back problems,24.6
+Asthma,Cancer,2.8
+Asthma,COPD (lung),9.8
+Asthma,Diabetes,8.3
+Asthma,Heart & stroke,8.5
+Asthma,Kidney disease,1.9
+Asthma,Mental health,41.3
+Asthma,Osteoporosis,5.4
+Back problems,Arthritis,33.6
+Back problems,Asthma,17
+Back problems,Back problems,100
+Back problems,Cancer,3.7
+Back problems,COPD (lung),6.7
+Back problems,Diabetes,9.7
+Back problems,Heart & stroke,12.4
+Back problems,Kidney disease,1.9
+Back problems,Mental health,43.3
+Back problems,Osteoporosis,7.5
+Cancer,Arthritis,43.4
+Cancer,Asthma,16.6
+Cancer,Back problems,32.3
+Cancer,Cancer,100
+Cancer,COPD (lung),11.4
+Cancer,Diabetes,13.6
+Cancer,Heart & stroke,22.1
+Cancer,Kidney disease,2.4
+Cancer,Mental health,35.8
+Cancer,Osteoporosis,14.6
+COPD (lung),Arthritis,45.2
+COPD (lung),Asthma,42.4
+COPD (lung),Back problems,41.9
+COPD (lung),Cancer,8.2
+COPD (lung),COPD (lung),100
+COPD (lung),Diabetes,13.8
+COPD (lung),Heart & stroke,24.1
+COPD (lung),Kidney disease,4.8
+COPD (lung),Mental health,48.6
+COPD (lung),Osteoporosis,11.6
+Diabetes,Arthritis,41.3
+Diabetes,Asthma,16.9
+Diabetes,Back problems,28.5
+Diabetes,Cancer,4.6
+Diabetes,COPD (lung),6.5
+Diabetes,Diabetes,100
+Diabetes,Heart & stroke,23.5
+Diabetes,Kidney disease,5.2
+Diabetes,Mental health,34.5
+Diabetes,Osteoporosis,7.1
+Heart & stroke,Arthritis,47.2
+Heart & stroke,Asthma,17.8
+Heart & stroke,Back problems,37.3
+Heart & stroke,Cancer,7.6
+Heart & stroke,COPD (lung),11.6
+Heart & stroke,Diabetes,23.9
+Heart & stroke,Heart & stroke,100
+Heart & stroke,Kidney disease,5.8
+Heart & stroke,Mental health,38.5
+Heart & stroke,Osteoporosis,12.2
+Kidney disease,Arthritis,41.3
+Kidney disease,Asthma,21.2
+Kidney disease,Back problems,30.1
+Kidney disease,Cancer,4.5
+Kidney disease,COPD (lung),12.4
+Kidney disease,Diabetes,28.2
+Kidney disease,Heart & stroke,31.2
+Kidney disease,Kidney disease,100
+Kidney disease,Mental health,37.4
+Kidney disease,Osteoporosis,11.8
+Mental health,Arthritis,21.2
+Mental health,Asthma,17.2
+Mental health,Back problems,26
+Mental health,Cancer,2.5
+Mental health,COPD (lung),4.7
+Mental health,Diabetes,7
+Mental health,Heart & stroke,7.7
+Mental health,Kidney disease,1.4
+Mental health,Mental health,100
+Mental health,Osteoporosis,4.3
+Osteoporosis,Arthritis,43.5
+Osteoporosis,Asthma,17.5
+Osteoporosis,Back problems,35.1
+Osteoporosis,Cancer,7.8
+Osteoporosis,COPD (lung),8.6
+Osteoporosis,Diabetes,11.1
+Osteoporosis,Heart & stroke,18.9
+Osteoporosis,Kidney disease,3.4
+Osteoporosis,Mental health,33.5
+Osteoporosis,Osteoporosis,100

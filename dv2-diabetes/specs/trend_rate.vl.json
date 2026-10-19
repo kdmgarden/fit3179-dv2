@@ -1,0 +1,240 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "More Australians report diabetes than 20 years ago",
+    "subtitle": "Share of people with diabetes, ABS National Health Survey"
+  },
+  "data": {
+    "url": "data/trend.csv"
+  },
+  "width": "container",
+  "height": 300,
+  "transform": [
+    {
+      "fold": [
+        "crude",
+        "age_std"
+      ],
+      "as": [
+        "series",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.series == 'crude' ? 'Raw rate (everyone)' : 'Age-adjusted rate'",
+      "as": "name"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "axis": {
+            "values": [
+              2001,
+              2008,
+              2012,
+              2015,
+              2018,
+              2022
+            ],
+            "format": "d",
+            "title": "Year the survey ended"
+          },
+          "scale": {
+            "domain": [
+              2000,
+              2023
+            ]
+          }
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              6.5
+            ]
+          },
+          "axis": {
+            "title": "% of people with diabetes",
+            "format": ".0f",
+            "tickCount": 6
+          }
+        },
+        "color": {
+          "field": "name",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Raw rate (everyone)",
+              "Age-adjusted rate"
+            ],
+            "range": [
+              "#2d84a1",
+              "#b0453d"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top-left",
+            "direction": "horizontal"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "value",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "name",
+          "type": "nominal",
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "survey",
+            "title": "Survey"
+          },
+          {
+            "field": "name",
+            "title": "Measure"
+          },
+          {
+            "field": "value",
+            "title": "% with diabetes",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2001,
+            "y": 3.3,
+            "t": "3.3% in 2001",
+            "al": "left",
+            "dy": 24
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "align": "left",
+        "dy": 24,
+        "dx": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2022,
+            "y": 5.3,
+            "t": "5.3% in 2022 (1.35 million people)",
+            "al": "right",
+            "dy": -14
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "align": "right",
+        "dy": -14,
+        "dx": -4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": 2022,
+            "y": 4.5,
+            "t": "4.5% once age is adjusted",
+            "al": "right",
+            "dy": 24
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "fontWeight": 600,
+        "align": "right",
+        "dy": 24,
+        "dx": -4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ],
+  "resolve": {
+    "scale": {
+      "x": "shared"
+    }
+  }
+}

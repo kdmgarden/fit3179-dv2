@@ -1,0 +1,308 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Which states have the most diabetes?",
+    "subtitle": "Share of people with diabetes, 2022. Switch between the two views below."
+  },
+  "width": "container",
+  "height": 460,
+  "projection": {
+    "type": "conicConformal",
+    "rotate": [
+      -134,
+      0,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ],
+    "center": [
+      0,
+      -27
+    ]
+  },
+  "params": [
+    {
+      "name": "measure",
+      "value": "age_std",
+      "bind": {
+        "input": "radio",
+        "options": [
+          "age_std",
+          "crude"
+        ],
+        "labels": [
+          "Age-adjusted (fairer)",
+          "Raw rate"
+        ],
+        "name": "Show: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "data/states.geojson",
+        "format": {
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.STATE_NAME",
+          "as": "name"
+        },
+        {
+          "lookup": "name",
+          "from": {
+            "data": {
+              "url": "data/states.csv"
+            },
+            "key": "name",
+            "fields": [
+              "code",
+              "crude",
+              "age_std",
+              "gap",
+              "number_k",
+              "moe"
+            ]
+          }
+        },
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        }
+      ],
+      "params": [
+        {
+          "name": "hover",
+          "select": {
+            "type": "point",
+            "on": "mouseover",
+            "clear": "mouseout",
+            "fields": [
+              "name"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white"
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues",
+            "domain": [
+              3,
+              7
+            ]
+          },
+          "legend": {
+            "title": "% with diabetes",
+            "orient": "bottom-left",
+            "gradientLength": 140,
+            "format": ".0f"
+          }
+        },
+        "stroke": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": "#222935"
+          },
+          "value": "white"
+        },
+        "strokeWidth": {
+          "condition": {
+            "param": "hover",
+            "empty": false,
+            "value": 3
+          },
+          "value": 1
+        },
+        "tooltip": [
+          {
+            "field": "name",
+            "title": "State"
+          },
+          {
+            "field": "crude",
+            "title": "Raw rate %",
+            "format": ".1f"
+          },
+          {
+            "field": "age_std",
+            "title": "Age-adjusted %",
+            "format": ".1f"
+          },
+          {
+            "field": "number_k",
+            "title": "People (thousands)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.code == 'ACT' ? '◂ ACT' : datum.code",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 13,
+        "dy": -6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.value > 5.3 && datum.code != 'ACT'",
+            "value": "white"
+          },
+          "value": "#222935"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        },
+        {
+          "filter": "datum.code != 'ACT'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "dy": 9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.value > 5.3",
+            "value": "white"
+          },
+          "value": "#222935"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/states.csv"
+      },
+      "transform": [
+        {
+          "calculate": "datum[measure]",
+          "as": "value"
+        },
+        {
+          "filter": "datum.code == 'ACT'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 12.5,
+        "dy": 9,
+        "dx": 14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "value",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 117,
+            "lat": -11.5
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "measure == 'age_std' ? 'Age-adjusted: NT (6.1)\\nand SA (6.0) stand out' : 'Raw rate: SA (7.2)\\nstands out most'",
+          "as": "t"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "color": "#222935",
+        "lineBreak": "\n"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ]
+}
