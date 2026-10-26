@@ -39,8 +39,11 @@ body {
 .head { margin-bottom: 28px; }
 .head.slim { margin-top: 44px; }
 .head .title { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
-.head .copy { max-width: 23em; }
-.num {
+.head .copy { display: grid; grid-template-columns: repeat(auto-fit, minmax(17em, 22em)); gap: 0 48px; }
+.head .copy p { margin: 0 0 14px; }
+@media (min-width: 1000px) {
+  .head .copy:has(p:nth-child(3)) { grid-template-columns: repeat(3, minmax(0, 18.5em)); }
+}.num {
   margin: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: #fff;
   font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 24px; display: grid; place-items: center;
 }
@@ -115,3 +118,4 @@ body, .chart svg text { font-variant-numeric: tabular-nums lining-nums; }
 
 .meta.ai { margin-top: 12px; padding-top: 0; border-top: 0; }
 .meta.ai b { color: #e2cfbc; }
+.nb { white-space: nowrap; }
