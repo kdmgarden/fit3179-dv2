@@ -28,10 +28,10 @@ body {
   font-size: clamp(30px, 4.4vw, 50px); line-height: 1.12; margin: 0 0 18px; max-width: 22em;
 }
 .hero h1 span { display: block; margin-top: 10px; font-weight: 500; font-size: .56em; color: #d4e6f0; line-height: 1.3; }
-.lead { max-width: 24em; font-size: 18px; color: #dfe6f3; margin: 0 0 30px; }
-.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid #3b4d63; padding-top: 24px; }
+.lead { max-width: 24em; font-size: 18px; color: #dfe6f3; margin: 0 0 14px; }
+.byline { margin: 0 0 30px; font-size: 14px; color: #a6d0e6; }.stats { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid #3b4d63; padding-top: 24px; }
 .stats strong { display: block; font-family: "Fraunces", Georgia, serif; font-size: clamp(24px, 3vw, 34px); color: #e2cfbc; line-height: 1.1; }
-.stats span { font-size: 14px; color: #d4e6f0; }
+.stats span { font-size: 15px; }
 
 /* ---------- sections ---------- */
 .story { padding: 56px 0 40px; }
