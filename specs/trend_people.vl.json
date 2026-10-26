@@ -31,7 +31,7 @@
         },
         "tooltip": [
           { "field": "survey", "title": "Survey" },
-          { "field": "number_k", "title": "People (thousands)", "format": ",.0f" }
+          { "field": "m", "type": "quantitative", "title": "People with diabetes (millions)", "format": ".2f" }
         ]
       }
     },
