@@ -85,7 +85,7 @@
           },
           "legend": {
             "title": null,
-            "orient": "top-left",
+            "orient": "top",
             "direction": "horizontal"
           }
         }
