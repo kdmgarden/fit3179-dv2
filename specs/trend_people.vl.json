@@ -23,7 +23,7 @@
         "y": {
           "field": "m",
           "type": "quantitative",
-          "axis": { "title": null, "labels": false, "ticks": false, "domain": false, "grid": false }
+          "axis": { "title": "Million people", "tickCount": 3, "grid": false }
         },
         "color": {
           "condition": { "test": "datum.year == 2022", "value": "#2d84a1" },
