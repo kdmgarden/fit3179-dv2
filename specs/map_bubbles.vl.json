@@ -100,16 +100,12 @@
   "title": "People (thousands)",
   "orient": "none",
   "legendX": 6,
-  "legendY": 4,
-  "values": [10, 100],
+  "legendY": 326,
+  "values": [10, 50, 100],
   "symbolFillColor": "#2d84a1",
   "symbolOpacity": 0.8,
   "fillColor": "transparent",
-  "padding": 2,
-  "direction": "horizontal",
-  "symbolOffset": 0,
-  "columnPadding": 12,
-  "labelOffset": 5
+  "padding": 6
 }
         },
         "color": {
