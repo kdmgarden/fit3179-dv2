@@ -1,14 +1,18 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {
-    "text": "Rates are highest outside the big cities",
-    "subtitle": "Adults with diabetes, 2022–24, adjusted for age (AIHW). Bar = everyone"
-  },
+     "title": {
+     "text": "Rates peak in outer regional and remote areas",
+     "subtitle": [
+       "Adults with diabetes, 2022–24, adjusted for age (AIHW).",
+       "Bar = everyone. Dots = men and women.",
+       "Men: 7.1% in cities, 12.8% outer regional & remote."
+     ]
+   },
   "data": {
     "url": "data/aihw_place.csv"
   },
   "width": "container",
-  "height": 230,
+  "height": 290,
   "transform": [
     {
       "filter": "datum.kind == 'Where you live'"

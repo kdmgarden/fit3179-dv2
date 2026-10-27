@@ -90,7 +90,7 @@
           },
           "axis": {
             "title": "% of people in the group with diabetes",
-            "format": ".0f"
+               "format": ".0f", "values": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
           }
         },
         "x2": {

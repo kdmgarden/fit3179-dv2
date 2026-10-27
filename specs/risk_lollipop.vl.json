@@ -282,8 +282,8 @@
       "data": {
         "values": [
           {
-            "key": "Overweight",
-            "x": 12.5,
+            "key": "Healthy weight",
+            "x": 9,
             "t": "Class III obesity:\nalmost 5 times the\nhealthy-weight rate"
           }
         ]
@@ -297,7 +297,7 @@
         "color": "#222935",
         "lineBreak": "\n",
         "dx": 0,
-        "dy": 0
+        "dy": -12
       },
       "encoding": {
         "y": {

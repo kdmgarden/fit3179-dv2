@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "People with diabetes often live with other conditions too",
-    "subtitle": "Read across a row: how many people with that condition also have each of the others (%)"
+    "subtitle": ["Read across a row: people with that condition,", "and the % who also have each of the others.", "Red outline = people with diabetes."]
   },
   "data": {
     "url": "data/comorbidity.csv"

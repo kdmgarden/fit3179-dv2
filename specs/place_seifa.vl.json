@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Poorer neighbourhoods carry a much heavier load",
-    "subtitle": "Adults with diabetes, 2022–24, adjusted for age (AIHW). Bar = everyone"
+       "subtitle": ["Adults with diabetes, 2022–24, adjusted for age (AIHW).", "Bar = everyone. Dots = men and women."]
   },
   "data": {
     "url": "data/aihw_place.csv"

@@ -123,7 +123,7 @@
       <div class="title"><p class="num">4</p><h2>Does where you live and your circumstances matter?</h2></div>
       <div class="copy">
         <p>They do. Adults in the most disadvantaged areas are <b>3.5 times</b> as likely to have diabetes as adults in the least disadvantaged areas (10.3% against 2.9%).</p>
-        <p>Outside the big cities the rate is higher too. This is mostly because of men.</p>
+        <p>The rate is highest in outer regional and remote areas (<b>8.0%</b>). This is mostly because of men. Women's rates barely change.</p>
       </div>
     </div>
     <div class="grid two">
@@ -152,7 +152,7 @@
     <div class="head">
       <div class="title"><p class="num">5</p><h2>What else goes with diabetes?</h2></div>
       <div class="copy">
-        <p>Diabetes rarely travels alone. Among people with diabetes, <b>41%</b> also have arthritis, <b>35%</b> a mental health condition and <b>24%</b> heart, stroke or vascular disease. Nearly half (<b>47%</b>) have three or more of the ten long-term conditions the survey asked about, counting diabetes itself.</p>
+        <p>Diabetes rarely travels alone. Among people with diabetes, <b>41%</b> also have arthritis, <b>35%</b> a mental health condition and <b>24%</b> heart, stroke or vascular disease.</p>
         <p>Body measurements show a steep pattern. <b>3.8%</b> of adults of healthy weight have diabetes. This rises to <b>18.8%</b> for the most severe obesity category. These are links, not proof of cause, and they mostly describe type&nbsp;2.</p>
       </div>
     </div>
@@ -160,7 +160,7 @@
       <figure><div class="chart" data-spec="comorbidity_heatmap" style="min-height:520px"></div>
         <figcaption>Source: ABS National Health Survey 2022, Table 16 (16.3). Read across a row; the diabetes row is outlined. Rows are not symmetrical because each condition has a different number of people.</figcaption></figure>
       <figure><div class="chart" data-spec="risk_lollipop" style="min-height:620px"></div>
-        <figcaption>Source: ABS National Health Survey 2022, Table 5 (5.3). Adults 18+. Waist and blood pressure were measured, not self-reported.</figcaption></figure>
+        <figcaption>Source: ABS National Health Survey 2022, Table 5 (5.3). Adults 18+. Weight, waist and blood pressure were measured where possible, and estimated by the ABS for people not measured.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -188,8 +188,8 @@
       <div>
         <h3>Sources</h3>
         <ul>
-          <li><b>Australian Bureau of Statistics (ABS)</b>, <i>National Health Survey 2022</i>, data tables 1–5 and 16. Self-reported, plus some measurements.</li>
-          <li><b>Australian Institute of Health and Welfare (AIHW)</b>, <i>Diabetes: Australian facts</i> (page updated September 2026), using the ABS <i>National Health Measures Survey 2022–24</i>. Based on blood tests.</li>
+          <li><b>Australian Bureau of Statistics (ABS)</b>, <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey/2022"><i>National Health Survey 2022</i></a>, data tables 1–5 and 16. Self-reported, plus some measurements.</li>
+          <li><b>Australian Institute of Health and Welfare (AIHW)</b>, <a href="https://www.aihw.gov.au/reports/diabetes/diabetes-australian-facts/contents/summary"><i>Diabetes: Australian facts</i></a> (page updated September 2026), using the ABS <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-measures-survey/latest-release"><i>National Health Measures Survey 2022–24</i></a>. Based on blood tests.</li>
           <li>State boundaries: <a href="https://github.com/tonywr71/GeoJson-Data">tonywr71/GeoJson-Data</a> (simplified).</li>
         </ul>
       </div>
@@ -210,8 +210,33 @@
         </ul>
       </div>
     </div>
-    <p class="meta">Visualisation by Kalisha Munasinghe, Monash University, October 2026. Built with Vega-Lite. Every chart is described in a JSON file in the <a href="specs/">specs</a> folder of this site's repository, and the data files are in <a href="data/">data</a>.</p>
-    <p class="meta ai"><b>Use of generative AI:</b> The topic was set by the unit. I found and chose the data sources (ABS National Health Survey 2022 and AIHW <i>Diabetes: Australian facts</i>) and the colour palette (<a href="https://octet.design/colors/palette/diabetes-health-color-palette-1732091914/">Diabetes Health Color Palette</a> by Grace Morgan). I used Claude (Anthropic) to help build the Vega-Lite, HTML, CSS and JavaScript code, including the layout, to prepare and debug the data files, and to check grammar and style. I reviewed the result, directed changes to the typography, spacing and colours, and can explain the code.</p>
+            <div class="refs">
+      <h3>References</h3>
+      <ol>
+        <li>Anthropic. (2026). <i>Claude</i> (Sonnet 5.5) [Large language model]. <a href="https://claude.ai">https://claude.ai</a></li>
+        <li>Australian Bureau of Statistics. (2023, December 15). <i>National Health Survey, 2022</i> [Data set]. <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey/2022">https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-survey/2022</a></li>
+        <li>Australian Bureau of Statistics. (2025, March 31). <i>National Health Measures Survey, 2022–24</i> [Data set]. <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-measures-survey/latest-release">https://www.abs.gov.au/statistics/health/health-conditions-and-risks/national-health-measures-survey/latest-release</a></li>
+        <li>Australian Institute of Health and Welfare. (2026, September). <i>Diabetes: Australian facts</i>. <a href="https://www.aihw.gov.au/reports/diabetes/diabetes-australian-facts/contents/summary">https://www.aihw.gov.au/reports/diabetes/diabetes-australian-facts/contents/summary</a></li>
+        <li>Morgan, G. (2024, November 20). <i>Diabetes health color palette</i> [Color palette]. Octet Design. <a href="https://octet.design/colors/palette/diabetes-health-color-palette-1732091914/">https://octet.design/colors/palette/diabetes-health-color-palette-1732091914/</a></li>
+        <li>Satyanarayan, A., Moritz, D., Wongsuphasawat, K., &amp; Heer, J. (2017). Vega-Lite: A grammar of interactive graphics. <i>IEEE Transactions on Visualization and Computer Graphics, 23</i>(1), 341–350. <a href="https://doi.org/10.1109/TVCG.2016.2599030">https://doi.org/10.1109/TVCG.2016.2599030</a></li>
+        <li>tonywr71. (n.d.). <i>GeoJson-Data</i> [Data set]. GitHub. <a href="https://github.com/tonywr71/GeoJson-Data">https://github.com/tonywr71/GeoJson-Data</a></li>
+      </ol>
+    </div>
+    <div class="grid three notes">
+      <div>
+        <h3>Credits</h3>
+        <p>Visualisation by Kalisha Munasinghe, Monash University, October 2026. Built with Vega-Lite.</p>
+      </div>
+      <div>
+        <h3>Code and data</h3>
+        <p>Every chart is described in a JSON file in the <a href="https://github.com/kdmgarden/fit3179-dv2/tree/main/specs">specs</a> folder of this site's repository. The data files are in <a href="https://github.com/kdmgarden/fit3179-dv2/tree/main/data">data</a>.</p>
+      </div>
+      <div>
+        <h3>Use of generative AI</h3>
+        <p>The topic was set by the unit. I chose the data sources and the colour palette. I used Claude (Anthropic) to help write the code and layout, prepare the data files and check grammar. I reviewed and directed the result, and can explain the code.</p>
+      </div>
+    </div>
+    </div>
   </div>
 </section>
 
