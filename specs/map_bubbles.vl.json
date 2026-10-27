@@ -100,7 +100,7 @@
   "title": "People (thousands)",
   "orient": "none",
   "legendX": 6,
-  "legendY": 326,
+  "legendY": 334,
   "values": [10, 30, 60],
   "symbolFillColor": "#2d84a1",
   "symbolOpacity": 0.8,
