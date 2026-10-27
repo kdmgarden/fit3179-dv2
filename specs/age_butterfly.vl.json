@@ -42,6 +42,7 @@
           ],
           "axis": {
             "title": "Age group (years)",
+"titlePadding": 14,
             "orient": "left",
             "labelPadding": 6
           }

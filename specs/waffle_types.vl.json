@@ -2,13 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
     "text": "Picture 100 Australians with diabetes",
-    "subtitle": "87 have type 2, 10 have type 1 and 3 are not known"
+    "subtitle": "87 have type 2, 10 have type 1 and 3 are not known",
+    "anchor": "middle"
   },
   "data": {
     "url": "data/waffle.csv"
   },
-  "width": 300,
-  "height": 300,
+  "width": 360,
+  "height": 360,
   "transform": [
     {
       "calculate": "datum.idx % 10",
@@ -21,7 +22,7 @@
   ],
   "mark": {
     "type": "square",
-    "size": 560,
+    "size": 790,
     "opacity": 1
   },
   "encoding": {

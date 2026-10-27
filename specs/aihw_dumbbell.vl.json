@@ -4,7 +4,7 @@
     "text": "A blood-test survey tells the same story",
     "subtitle": [
       "Adults with diabetes by age, 2022–24 (AIHW).",
-      "Hollow dots are less reliable estimates."
+      "Hollow dot = less precise estimate (AIHW says use with caution)."
     ]
   },
   "data": {
@@ -40,7 +40,8 @@
             "18–44"
           ],
           "axis": {
-            "title": "Age group (years)"
+            "title": "Age group (years)",
+"titlePadding": 14
           }
         },
         "x": {
