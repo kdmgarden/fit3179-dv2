@@ -99,8 +99,8 @@
           "legend": {
   "title": "People (thousands)",
   "orient": "none",
-  "legendX": 6,
-  "legendY": 334,
+  "legendX": 1,
+  "legendY": 3,
   "values": [10, 30, 60],
   "symbolFillColor": "#2d84a1",
   "symbolOpacity": 0.8,
