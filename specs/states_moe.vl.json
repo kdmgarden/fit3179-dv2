@@ -4,212 +4,72 @@
     "text": "Is a state really higher, or is it just the survey?",
     "subtitle": "Raw rate in 2022 with its margin of error (the range the true figure probably sits in)"
   },
-  "data": {
-    "url": "data/states.csv"
-  },
+  "data": {"url": "data/states.csv"},
   "width": "container",
   "height": 330,
   "layer": [
     {
-      "data": {
-        "values": [
-          {
-            "lo": 4.8,
-            "hi": 5.8
-          }
-        ]
-      },
-      "mark": {
-        "type": "rect",
-        "color": "#cfd8e6",
-        "opacity": 0.6
-      },
+      "data": {"values": [{"lo": 4.8, "hi": 5.8}]},
+      "mark": {"type": "rect", "color": "#cfd8e6", "opacity": 0.6},
       "encoding": {
-        "x": {
-          "field": "lo",
-          "type": "quantitative"
-        },
-        "x2": {
-          "field": "hi"
-        }
+        "x": {"field": "lo", "type": "quantitative", "scale": {"domain": [2, 9]}},
+        "x2": {"field": "hi"}
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "x": 5.3
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "color": "#222935",
-        "strokeDash": [
-          4,
-          3
-        ]
-      },
+      "data": {"values": [{"x": 5.3}]},
+      "mark": {"type": "rule", "color": "#222935", "strokeDash": [4, 3]},
       "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative"
-        }
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [2, 9]}}
       }
     },
     {
-      "data": {
-        "values": [
-          {
-            "x": 5.3,
-            "t": "Australia 5.3%"
-          }
-        ]
-      },
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 5,
-        "dy": -2,
-        "fontSize": 12,
-        "fontWeight": 600,
-        "baseline": "top"
-      },
+      "data": {"values": [{"x": 5.3, "t": "Australia 5.3% (grey band = its margin of error)"}]},
+      "mark": {"type": "text", "align": "left", "dx": 5, "dy": -2, "fontSize": 12, "fontWeight": 600, "baseline": "top"},
       "encoding": {
-        "x": {
-          "field": "x",
-          "type": "quantitative"
-        },
-        "text": {
-          "field": "t"
-        },
-        "y": {
-          "value": 0
-        }
+        "x": {"field": "x", "type": "quantitative", "scale": {"domain": [2, 9]}},
+        "text": {"field": "t"},
+        "y": {"value": 0}
       }
     },
     {
-      "mark": {
-        "type": "rule",
-        "strokeWidth": 3
-      },
+      "mark": {"type": "rule", "strokeWidth": 3},
       "encoding": {
         "y": {
-          "field": "code",
-          "type": "nominal",
-          "sort": [
-            "SA",
-            "Tas",
-            "NT",
-            "WA",
-            "NSW",
-            "Qld",
-            "Vic",
-            "ACT"
-          ],
-          "axis": {
-            "title": null
-          }
+          "field": "code", "type": "nominal",
+          "sort": ["SA", "Tas", "NT", "WA", "NSW", "Qld", "Vic", "ACT"],
+          "axis": {"title": null}
         },
         "x": {
-          "field": "lo",
-          "type": "quantitative",
+          "field": "lo", "type": "quantitative",
           "title": "% of people with diabetes (raw rate)",
-          "scale": {
-            "domain": [
-              0,
-              10
-            ]
-          },
-          "axis": {
-            "values": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10
-            ]
-          }
+          "scale": {"domain": [2, 9]},
+          "axis": {"values": [2, 3, 4, 5, 6, 7, 8, 9], "format": "d"}
         },
-        "x2": {
-          "field": "hi"
-        },
+        "x2": {"field": "hi"},
         "color": {
-          "field": "verdict",
-          "type": "nominal",
+          "field": "verdict", "type": "nominal",
           "scale": {
-            "domain": [
-              "Clearly higher than Australia",
-              "Clearly lower than Australia",
-              "Too close to tell apart from Australia"
-            ],
-            "range": [
-              "#b0453d",
-              "#2d84a1",
-              "#7d8fa8"
-            ]
+            "domain": ["Clearly higher than Australia", "Clearly lower than Australia", "Too close to tell apart from Australia"],
+            "range": ["#b0453d", "#2d84a1", "#9a9a94"]
           },
-          "legend": {
-            "title": null,
-            "orient": "bottom",
-            "columns": 1,
-            "labelLimit": 400
-          }
+          "legend": {"title": null, "orient": "bottom", "columns": 1, "labelLimit": 400}
         }
       }
     },
     {
-      "mark": {
-        "type": "point",
-        "filled": true,
-        "size": 120,
-        "opacity": 1
-      },
+      "mark": {"type": "point", "filled": true, "size": 120, "opacity": 1},
       "encoding": {
         "y": {
-          "field": "code",
-          "type": "nominal",
-          "sort": [
-            "SA",
-            "Tas",
-            "NT",
-            "WA",
-            "NSW",
-            "Qld",
-            "Vic",
-            "ACT"
-          ]
+          "field": "code", "type": "nominal",
+          "sort": ["SA", "Tas", "NT", "WA", "NSW", "Qld", "Vic", "ACT"]
         },
-        "x": {
-          "field": "crude",
-          "type": "quantitative"
-        },
-        "color": {
-          "field": "verdict",
-          "type": "nominal",
-          "legend": null
-        },
+        "x": {"field": "crude", "type": "quantitative", "scale": {"domain": [2, 9]}},
+        "color": {"field": "verdict", "type": "nominal", "legend": null},
         "tooltip": [
-          {
-            "field": "name",
-            "title": "State"
-          },
-          {
-            "field": "crude",
-            "title": "Raw rate %",
-            "format": ".1f"
-          },
-          {
-            "field": "moe",
-            "title": "Margin of error ±",
-            "format": ".1f"
-          }
+          {"field": "name", "title": "State"},
+          {"field": "crude", "title": "Raw rate %", "format": ".1f"},
+          {"field": "moe", "title": "Margin of error ±", "format": ".1f"}
         ]
       }
     }
