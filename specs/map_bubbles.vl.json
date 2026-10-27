@@ -100,11 +100,11 @@
             "title": "People (thousands)",
             "orient": "none",
             "legendX": 6,
-            "legendY": 4,
+            "legendY": 300,
             "values": [
               10,
-              100,
-              300
+              50,
+              150
             ],
             "symbolFillColor": "#2d84a1",
             "symbolOpacity": 0.8,
@@ -206,7 +206,7 @@
         "fontWeight": 600,
         "fontSize": 12,
         "align": "left",
-        "dx": 14
+        "dx": 18
       },
       "encoding": {
         "longitude": {
@@ -226,7 +226,7 @@
       "data": {
         "values": [
           {
-            "lon": 117.5,
+            "lon": 126,
             "lat": -38.5,
             "t": "NSW and Victoria together\nhold about 55% of all cases"
           }
